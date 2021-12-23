@@ -3,7 +3,7 @@
 
 namespace sort
 {
-	//template<typename T>
+	 
 	int bouble(int* arr, int size){
 		bool sorted = false;
 		int tmp;
@@ -25,6 +25,29 @@ namespace sort
 		return counter;
 }
 
+	int bouble_plus(int* arr, int size)
+	{
+		int tmp;
+		int counter = 0;
+
+		 for (int i = 0; i < size - 1; i++)
+			{
+				counter++;
+				if (arr[i] > arr[i + 1])
+				{
+					tmp = arr[i];
+					arr[i] = arr[i + 1];
+					arr[i + 1] = tmp;
+					--i;
+				}
+			}
+	return counter;
+	}
+
+	int merge_sort(int* arr, int size)
+	{
+		return 0;
+	}
 
 
 

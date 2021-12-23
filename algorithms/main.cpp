@@ -9,7 +9,7 @@ future tasks
 4) Алгоритмы поиска: линейный и бинарный ...
 5) Алгоритм переворота строки
 */
-#define SIZE_ARR 10
+#define SIZE_ARR 40
 
 
 void rand_feel(int * arr)
@@ -36,6 +36,8 @@ int main()
 	rand_feel(i);
 	show_int_arr(i);
 	std::cout << sort::bouble(i, SIZE_ARR);
+	show_int_arr(i);
+	std::cout << sort::bouble_plus(i, SIZE_ARR);
 	show_int_arr(i);
 
 
