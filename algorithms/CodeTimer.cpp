@@ -1,7 +1,7 @@
  #pragma once
  #include <chrono>
  #include <iostream>
- #include "CodeTimer.hpp"
+ #include "CodeTimer.h"
  #include <string>
 
 
