@@ -139,11 +139,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CodeTimer.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Algo.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Algo.h" />
+    <ClInclude Include="CodeTimer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
