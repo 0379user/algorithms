@@ -104,7 +104,8 @@ namespace sort
 		return counter;
 	}
 
-
+	int quick(int* arr, int size) {
+	}
 
 
 
