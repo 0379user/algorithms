@@ -5,7 +5,7 @@ namespace sort
 {
 	 
 	int bouble(int* arr, int size){
-		CodeTimer T("bouble sort");
+		//CodeTimer T("bouble sort"); 0.0236658 - 1014
 		bool sorted = false;
 		int tmp;
 		int counter = 0;
@@ -28,7 +28,7 @@ namespace sort
 
 	int bouble_plus(int* arr, int size)
 	{
-		CodeTimer T("bouble plus sort");
+		//CodeTimer T("bouble plus sort");//0.167414 - 5601
 		int tmp;
 		int counter = 0;
 
@@ -40,7 +40,8 @@ namespace sort
 					tmp = arr[i];
 					arr[i] = arr[i + 1];
 					arr[i + 1] = tmp;
-					--i;
+					i=-1;
+
 				}
 			}
 	
@@ -50,7 +51,7 @@ namespace sort
 	int merge(int* arr, int size)
 	{
 		int counter = 0;
-		CodeTimer T("merge sort");
+		//CodeTimer T("merge sort");
 		int* tmp = new int[size];
 		int mid = (size % 2 == 1) ? (size/2)+1 : (size/2) ;
 		int step;
@@ -104,7 +105,9 @@ namespace sort
 		return counter;
 	}
 
-	int quick(int* arr, int size) {
+	int quick(int* arr, int size) 
+	{
+		return 0;
 	}
 
 
