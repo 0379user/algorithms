@@ -113,3 +113,34 @@ namespace sort
 
 
 }
+
+
+
+namespace search
+{
+	int binary_search(int * arr, int size, int val)
+	{
+		int low = 0;
+		int high = size - 1;
+		int mid = 0;
+		while(low<=high)
+		{
+			mid = (low+high) / 2;
+			if (arr[mid] == val)
+			{
+				return mid;
+			}
+			else if (arr[mid] > val)
+			{
+				high = mid-1;
+			}else
+			{
+				low = mid+1;
+			}
+		}
+		return -1;
+	}
+
+	
+
+}
