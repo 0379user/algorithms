@@ -11,6 +11,14 @@ namespace sort
 	int merge(int* arr, int size);
 
 	int quick(int* arr, int size);
+
+	///helps functions
+	int find_smallest(int* arr, int size);
+
+
+	//helps functions
+
+	int selection_sort(int* arr, int size);
 }
 
 namespace search
@@ -56,4 +64,6 @@ namespace search
 			beg++;
 		}
 	}
+
+
 }

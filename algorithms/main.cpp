@@ -9,7 +9,7 @@ future tasks
 4) Алгоритмы поиска: линейный и бинарный ...
 5) Алгоритм переворота строки
 */
-#define SIZE_ARR 40
+#define SIZE_ARR 10
 
 
 void rand_feel(int * arr)
@@ -37,9 +37,9 @@ void test()
 	show_arr(i, SIZE_ARR);
 	rand_feel(i);
 	show_arr(i, SIZE_ARR);
-	std::cout << sort::bouble(i, SIZE_ARR);
+	std::cout << sort::selection_sort(i, SIZE_ARR);
 	show_arr(i, SIZE_ARR);
-	std::cout << "find 7 " << search::binary_search(i, SIZE_ARR, 7)<<" ";
+	//std::cout << "find 7 " << search::binary_search(i, SIZE_ARR, 7)<<" ";
 	//std::cout << sort::bouble_plus(i, SIZE_ARR);
 	//show_arr(i);
 	//std::cout << sort::merge(i, SIZE_ARR);
@@ -50,12 +50,13 @@ void test_template()
 {
 	std::vector<int> vec = { 1,2,3,4,5,6,7,8,9,10,11,12 };
 	show_arr(vec, vec.size());
-	std::cout << "find 10 " << search::line_search(vec.begin(), vec.end(),  10);
+	std::cout << "find 10 " << search::line_search(vec.begin(), 
+		vec.end(),  10);
 }
 
 int main()
 {
-	test_template();
+	test();
 
 	return 0;
 }

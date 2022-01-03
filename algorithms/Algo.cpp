@@ -110,7 +110,51 @@ namespace sort
 		return 0;
 	}
 
+	int find_smallest(int* arr, int size)
+	{
+		int temp = arr[0];
+		int index = 0;
+		for (int i = 1; i < size; i++)
+		{
+			if (temp>arr[i])
+			{
+				temp = arr[i];
+				index = i;
+			}
+		}
+		return index;
+	}
 
+	int selection_sort(int* arr, int size)
+	{
+		int counter = 0;
+		int* tmp = new int[size];
+		int new_size = size;
+		int in = 0;
+		while (size)
+		{
+			counter++;
+			int smallest = find_smallest(arr, new_size);
+			tmp[in] = arr[smallest];
+			auto pop = [&arr, & smallest, new_size]() 
+			{
+				int * n_arr = new int[new_size-1];
+				for (int i = 0; i < new_size; i++)
+				{
+					if(i==smallest)
+					{
+						continue;
+					}
+					n_arr[i] = arr[i];
+				}
+				int* t = arr;
+				arr = n_arr;
+				delete[] t;
+			};
+			pop(); new_size--; size--; in++;
+		}
+		return counter;
+	}
 
 }
 
