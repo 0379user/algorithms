@@ -14,11 +14,11 @@ namespace sort
 
 	///helps functions
 	int find_smallest(int* arr, int size);
-
+	void pop(int* & arr, int size, int index_delete);
 
 	//helps functions
 
-	int selection_sort(int* arr, int size);
+	int selection_sort(int* & arr, int size);
 }
 
 namespace search

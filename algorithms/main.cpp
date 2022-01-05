@@ -54,9 +54,42 @@ void test_template()
 		vec.end(),  10);
 }
 
+int result;
+int recursion_sum(int* arr, int tail)
+{
+	if (tail == 0)
+	{
+		return arr[tail];
+	}
+	return result += recursion_sum(arr, tail-1);
+
+}
+
+int i=0;
+int fib(int val)
+{
+	if (val > 3)
+	{
+		int res = 2;
+		int i = 3;
+		while (i != val)
+		{
+			res += res;
+		}
+
+
+	}
+
+}
+
 int main()
 {
-	test();
+	int arr[] = { 1,2,3,4,5 };
+	int i = (sizeof(arr) / sizeof(int));
+	int j = 0;
+	j=recursion_sum(arr, i);
+	std::cout << j;
+	//test();
 
 	return 0;
 }

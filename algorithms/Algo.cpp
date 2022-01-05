@@ -124,8 +124,22 @@ namespace sort
 		}
 		return index;
 	}
-
-	int selection_sort(int* arr, int size)
+	void pop(int* & arr, int size, int index_delete)
+	{
+		int* n_arr = new int[(size - 1)];
+		for (int i = 0, j=0; i < size; i++, j++)
+		{
+			if (i == index_delete)
+			{
+				++i;
+			}
+			n_arr[j] = arr[i];
+		}
+		int* t = arr;
+		arr = n_arr;
+		delete[] t;
+	}
+	int selection_sort(int* & arr, int size)
 	{
 		int counter = 0;
 		int* tmp = new int[size];
@@ -136,23 +150,11 @@ namespace sort
 			counter++;
 			int smallest = find_smallest(arr, new_size);
 			tmp[in] = arr[smallest];
-			auto pop = [&arr, & smallest, new_size]() 
-			{
-				int * n_arr = new int[new_size-1];
-				for (int i = 0; i < new_size; i++)
-				{
-					if(i==smallest)
-					{
-						continue;
-					}
-					n_arr[i] = arr[i];
-				}
-				int* t = arr;
-				arr = n_arr;
-				delete[] t;
-			};
-			pop(); new_size--; size--; in++;
+			pop(arr, new_size, smallest); new_size--; size--; in++;
 		}
+		int* t = arr;
+		arr = tmp;
+	    delete[] t;
 		return counter;
 	}
 
