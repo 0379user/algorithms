@@ -33,15 +33,16 @@ void test()
 {
 	CodeTimer t("test function");
 	int* i = new int[SIZE_ARR]();
-	show_arr(i);
+		show_arr(i);
 	rand_feel(i);
-	show_arr(i);
-	std::cout << sort::bouble(i, SIZE_ARR);
-	show_arr(i);
+		show_arr(i);
+	//std::cout << sort::bouble(i, SIZE_ARR);
+	//	show_arr(i);
 	//std::cout << sort::bouble_plus(i, SIZE_ARR);
 	//show_arr(i);
-	//std::cout << sort::merge(i, SIZE_ARR);
-	//show_arr(i);
+	
+	std::cout << sort::merge(i, SIZE_ARR);
+	show_arr(i);
 }
 
 int main()

@@ -31,8 +31,11 @@ namespace sort
 		//CodeTimer T("bouble plus sort");//0.167414 - 5601
 		int tmp;
 		int counter = 0;
-
-		 for (int i = 0; i < size - 1; i++)
+		bool sorted = false;
+		while (!sorted)
+		{
+			sorted = true;
+			for (int i = 0; i < size - 1; i++)
 			{
 				counter++;
 				if (arr[i] > arr[i + 1])
@@ -40,10 +43,11 @@ namespace sort
 					tmp = arr[i];
 					arr[i] = arr[i + 1];
 					arr[i + 1] = tmp;
-					i=-1;
-
+					i--;
+					sorted = false;
 				}
 			}
+		}
 	
 	return counter;
 	}
