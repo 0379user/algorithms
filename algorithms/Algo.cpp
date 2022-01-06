@@ -114,6 +114,83 @@ namespace sort
 		return 0;
 	}
 
+	int find_smallest(int* arr, int size)
+	{
+		int temp = arr[0];
+		int index = 0;
+		for (int i = 1; i < size; i++)
+		{
+			if (temp>arr[i])
+			{
+				temp = arr[i];
+				index = i;
+			}
+		}
+		return index;
+	}
+	void pop(int* & arr, int size, int index_delete)
+	{
+		int* n_arr = new int[(size - 1)];
+		for (int i = 0, j=0; i < size; i++, j++)
+		{
+			if (i == index_delete)
+			{
+				++i;
+			}
+			n_arr[j] = arr[i];
+		}
+		int* t = arr;
+		arr = n_arr;
+		delete[] t;
+	}
+	int selection_sort(int* & arr, int size)
+	{
+		int counter = 0;
+		int* tmp = new int[size];
+		int new_size = size;
+		int in = 0;
+		while (size)
+		{
+			counter++;
+			int smallest = find_smallest(arr, new_size);
+			tmp[in] = arr[smallest];
+			pop(arr, new_size, smallest); new_size--; size--; in++;
+		}
+		int* t = arr;
+		arr = tmp;
+	    delete[] t;
+		return counter;
+	}
 
+}
+
+
+
+namespace search
+{
+	int binary_search(int * arr, int size, int val)
+	{
+		int low = 0;
+		int high = size - 1;
+		int mid = 0;
+		while(low<=high)
+		{
+			mid = (low+high) / 2;
+			if (arr[mid] == val)
+			{
+				return mid;
+			}
+			else if (arr[mid] > val)
+			{
+				high = mid-1;
+			}else
+			{
+				low = mid+1;
+			}
+		}
+		return -1;
+	}
+
+	
 
 }
