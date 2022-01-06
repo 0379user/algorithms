@@ -46,63 +46,42 @@ void test()
 	//show_arr(i);
 }
 
-void test_template()
+void dinamic_fib(int value)
 {
-	std::vector<int> vec = { 1,2,3,4,5,6,7,8,9,10,11,12 };
-	show_arr(vec, vec.size());
-	std::cout << "find 10 " << search::line_search(vec.begin(), 
-		vec.end(),  10);
+	if (value == 1)
+	{
+		std::cout << "0";
+		return;
+	}
+	if (value == 2)
+	{
+		std::cout << "1";
+		return;
+	}
+	if (value == 3)
+	{
+		std::cout << "1";
+		return;
+	}
+	int* fib = new int[value];
+	int tmp;
+	fib[0] = 0;
+	fib[1] = 1;
+	for (int i = 2; i < value; i++)
+	{
+		fib[i] = fib[i - 1] + fib[i - 2];
+	}
+	for (int j = 0; j < value; j++)
+	{
+		std::cout << " position " << j + 1 << " value " << fib[j]<<"\n";
+	}
+	delete[] fib;
 }
 
-//int result;
-//int recursion_sum(int* arr, int tail)
-//{
-//	if (tail == 0)
-//	{
-//		return arr[tail];
-//	}
-//	return result += recursion_sum(arr, tail-1);
-//
-//}
-//
-//int i=0;
-//int fib(int val)
-//{
-//	if (val > 3)
-//	{
-//		int res = 2;
-//		int i = 3;
-//		while (i != val)
-//		{
-//			res += res;
-//		}
-//
-//
-//	}
-//
-//}
-//
-
-int a=1, b=1, n=0, tmp;
-
-void print_fib(int c)
-{
-if(c==n)
-{
-	return;
-}
-
-std::cout << a << " "<< b;
-tmp = a;
-b += a;
-print_fib(c + 1);
-}
 int main()
 {
 	int arr[] = { 1,2,3,4,5 };
-	
-	print_fib(5);
-	//test();
-
+	char str[] = { 'h','e','l','l','o','\0' };
+	dinamic_fib(15);
 	return 0;
 }
