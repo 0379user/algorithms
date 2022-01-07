@@ -9,7 +9,7 @@ future tasks
 4) Алгоритмы поиска: линейный и бинарный ...
 5) Алгоритм переворота строки
 */
-#define SIZE_ARR 10
+#define SIZE_ARR 40
 
 
 void rand_feel(int * arr)
@@ -46,7 +46,7 @@ void test()
 	//show_arr(i);
 }
 
-void dinamic_fib(int value)
+void dinamic_fib(size_t value)
 {
 	if (value == 1)
 	{
@@ -64,7 +64,6 @@ void dinamic_fib(int value)
 		return;
 	}
 	int* fib = new int[value];
-	int tmp;
 	fib[0] = 0;
 	fib[1] = 1;
 	for (int i = 2; i < value; i++)
@@ -80,8 +79,12 @@ void dinamic_fib(int value)
 
 int main()
 {
-	int arr[] = { 1,2,3,4,5 };
-	char str[] = { 'h','e','l','l','o','\0' };
-	dinamic_fib(15);
+	int* arr = new int[SIZE_ARR];
+	rand_feel(arr);
+	show_arr(arr, SIZE_ARR);
+	int i = sort::quick(arr, 0, SIZE_ARR-1);
+	//int i = sort::bouble(arr, SIZE_ARR);
+	show_arr(arr, SIZE_ARR);
+	std::cout << "\n" << i;
 	return 0;
 }

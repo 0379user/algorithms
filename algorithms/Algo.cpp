@@ -3,7 +3,7 @@
 
 namespace sort
 {
-	 
+	int result = 0;
 	int bouble(int* arr, int size){
 		//CodeTimer T("bouble sort"); 0.0236658 - 1014
 		bool sorted = false;
@@ -109,9 +109,38 @@ namespace sort
 		return counter;
 	}
 
-	int quick(int* arr, int size) 
+	void swap(int* l, int* r)
 	{
-		return 0;
+		int t = *l;
+		*l = *r;
+		*r = t;
+	}
+	int partition(int* arr, int low, int high)
+	{
+		int pivot = arr[high];
+		int i = low - 1;
+		for (int j = low; j < high; j++)
+		{
+			if (arr[j] <= pivot)
+			{
+				i++;
+				swap(&arr[i], &arr[j]);
+			}
+		}
+		swap(&arr[i + 1], &arr[high]);
+		return i + 1;
+	}
+
+	int quick(int* arr, int low, int high) 
+	{
+		result++;
+		if (low < high)
+		{
+			int pi = partition(arr, low, high);
+			quick(arr, low, pi - 1);
+			quick(arr, pi + 1, high);
+		}
+		return result;
 	}
 
 	int find_smallest(int* arr, int size)
@@ -128,7 +157,7 @@ namespace sort
 		}
 		return index;
 	}
-	void pop(int* & arr, int size, int index_delete)
+	void pop(int* & arr, size_t size, int index_delete)
 	{
 		int* n_arr = new int[(size - 1)];
 		for (int i = 0, j=0; i < size; i++, j++)

@@ -9,12 +9,14 @@ namespace sort
 	int bouble_plus(int* arr, int size);
 
 	int merge(int* arr, int size);
-
-	int quick(int* arr, int size);
-
+	//
+	int quick(int* arr, int low, int hight);
+	int partition(int* arr, int low, int hight);
+	void swap(int * l, int * r);
+	//
 	///helps functions
 	int find_smallest(int* arr, int size);
-	void pop(int* & arr, int size, int index_delete);
+	void pop(int* & arr, size_t size, int index_delete);
 
 	//helps functions
 
