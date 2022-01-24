@@ -77,14 +77,17 @@ void dinamic_fib(size_t value)
 	delete[] fib;
 }
 
+
+
+
+ 
+
 int main()
 {
-	int* arr = new int[SIZE_ARR];
-	rand_feel(arr);
-	show_arr(arr, SIZE_ARR);
-	int i = sort::quick(arr, 0, SIZE_ARR-1);
-	//int i = sort::bouble(arr, SIZE_ARR);
-	show_arr(arr, SIZE_ARR);
-	std::cout << "\n" << i;
+	
+	uint8_t x = 0;
+	uint16_t t = 65535;
+	x = t;
+	std::cout << int(x);
 	return 0;
 }
