@@ -65,6 +65,7 @@ namespace search
 			count++;
 			beg++;
 		}
+		return count;
 	}
 
 

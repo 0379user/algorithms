@@ -79,15 +79,71 @@ void dinamic_fib(size_t value)
 
 
 
-
+typedef struct virtual_machine 
+{
+	uint8_t stack[128];
+	uint16_t size;
+}vm_t;
+//template<typename T>
+typedef struct node
+{
+	 int data;
+	 node* next;
+}node_t;
  
+node_t* make_node(size_t size)
+{
+	node_t* nd = new node_t[size];
+	node_t* ret = nd;
+	for (int i = 0; i < size; i++)
+	{
+		nd[i].data = i;
+		nd[i].next = &nd[i + 1];
+	}
+	nd[size - 1].next = nullptr;
+	return ret;
+}
+
+void free_node(node_t* node)
+{
+	delete[] node;
+}
+void print_node(node_t* node)
+{
+	node_t* begin = node;
+	while(begin!=nullptr)
+	{ 
+		std::cout << begin->data << " ";
+		begin = begin->next;
+	}
+}
+
+void test_node() {
+	auto nd = make_node(10);
+	print_node(nd);
+	free_node(nd);
+}
+
+void test_digits()
+{
+	uint16_t* x;
+	uint32_t r = 1500;
+	std::string  result;
+	x = (uint16_t*)&r;
+	x++;
+	for (int i = 0; i < 2; i++)
+	{
+		result += std::to_string(*x);
+		x--;
+	}
+
+	std::cout << r << "\n" << result;
+}
+
 
 int main()
 {
+	test_digits();
 	
-	uint8_t x = 0;
-	uint16_t t = 65535;
-	x = t;
-	std::cout << int(x);
 	return 0;
 }
