@@ -37,7 +37,7 @@ void test()
 	show_arr(i, SIZE_ARR);
 	rand_feel(i);
 	show_arr(i, SIZE_ARR);
-	std::cout << sort::selection_sort(i, SIZE_ARR);
+	std::cout << sort::bouble(i, SIZE_ARR);
 	show_arr(i, SIZE_ARR);
 	//std::cout << "find 7 " << search::binary_search(i, SIZE_ARR, 7)<<" ";
 	//std::cout << sort::bouble_plus(i, SIZE_ARR);
@@ -140,10 +140,34 @@ void test_digits()
 	std::cout << r << "\n" << result;
 }
 
+//pattern
+class Singl 
+{
+public:
+	Singl(const Singl& other) = default;
+	Singl operator = (const Singl& other) {};
+	
+	static Singl* get_instance()
+	{
+		if (! (instance == nullptr))
+		{
+			instance = new Singl;
+		}
+	}
+private:
+	static Singl* instance;
+	Singl(){}
+
+};
+
+Singl* Singl::instance = nullptr;
+
+
+
 
 int main()
 {
-	test_digits();
+	test();
 	
 	return 0;
 }

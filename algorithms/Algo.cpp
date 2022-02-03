@@ -52,6 +52,27 @@ namespace sort
 	return counter;
 	}
 
+	int choose(int* arr, int size)
+	{
+		int counter = 0;
+		for (int pos = 0; pos < size - 1; pos++)
+		{
+			for (int i = pos; i < size; i++)
+			{
+				counter++;
+				if (arr[i] < arr[pos])
+				{
+					int tmp = arr[i];
+					arr[i] = arr[pos];
+					arr[pos] = tmp;
+				}
+
+			}
+	}
+		return counter;
+	}
+
+
 	int merge(int* arr, int size)
 	{
 		int counter = 0;

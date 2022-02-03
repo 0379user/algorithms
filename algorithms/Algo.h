@@ -8,6 +8,9 @@ namespace sort
 
 	int bouble_plus(int* arr, int size);
 
+	int choose(int* arr, int size);
+
+
 	int merge(int* arr, int size);
 	//
 	int quick(int* arr, int low, int hight);
