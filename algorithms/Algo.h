@@ -24,6 +24,10 @@ namespace sort
 	//helps functions
 
 	int selection_sort(int* & arr, int size);
+
+	int count_sort_map(int* arr, int size);
+
+	int count_sort_without_map(int* arr, int size);
 }
 
 namespace search

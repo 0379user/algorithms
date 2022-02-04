@@ -1,10 +1,12 @@
 #include "Algo.h"
-
+#include <map>
+#include <iostream>
 
 namespace sort
 {
 	int result = 0;
 	int bouble(int* arr, int size){
+		std::cout << "bouble\n";
 		//CodeTimer T("bouble sort"); 0.0236658 - 1014
 		bool sorted = false;
 		int tmp;
@@ -28,6 +30,7 @@ namespace sort
 
 	int bouble_plus(int* arr, int size)
 	{
+		std::cout << "bouble_plus\n";
 		//CodeTimer T("bouble plus sort");//0.167414 - 5601
 		int tmp;
 		int counter = 0;
@@ -54,6 +57,7 @@ namespace sort
 
 	int choose(int* arr, int size)
 	{
+		std::cout << "choose\n";
 		int counter = 0;
 		for (int pos = 0; pos < size - 1; pos++)
 		{
@@ -75,6 +79,7 @@ namespace sort
 
 	int merge(int* arr, int size)
 	{
+		std::cout << "merge\n";
 		int counter = 0;
 		//CodeTimer T("merge sort");
 		int* tmp = new int[size];
@@ -154,6 +159,7 @@ namespace sort
 
 	int quick(int* arr, int low, int high) 
 	{
+
 		result++;
 		if (low < high)
 		{
@@ -195,6 +201,7 @@ namespace sort
 	}
 	int selection_sort(int* & arr, int size)
 	{
+		std::cout << "selection_sort\n";
 		int counter = 0;
 		int* tmp = new int[size];
 		int new_size = size;
@@ -211,7 +218,51 @@ namespace sort
 	    delete[] t;
 		return counter;
 	}
+	int count_sort_map(int* arr, int size)
+	{
+		std::cout << "count_sort_map\n";
+		int counter = 0;
+		std::map<int,int> s;
+		
+		for (int i = 0; i < size; i++)
+		{
+			++ s[arr[i]];
+		}
+		int pos = 0;
+		for (auto& el : s)
+		{
+			for (int j = 0; j < el.second; j++)
+			{
+				arr[pos] = el.first;
+				pos++;
+				counter++;
+			}
+		}
+		return counter;
+	}
+	int count_sort_without_map(int* arr, int size)
+	{
+		int counter = 0;
+		std::cout << "count_sort_without_map\n";
+		int c[10] = { 0,0,0,0,0,0,0,0,0,0 };
+		for (int i = 0; i < size; i++)
+		{
+			++c[arr[i]];
+		}
+		int pos = 0;
+		for (int j = 0; j < 10; j++)
+		{
+			for (int i = 0; i < c[j]; i++)
+			{
+				arr[pos] = c[j];
+				pos++;
+				counter++;
+			}
+		}
 
+
+		return counter;
+	}
 }
 
 

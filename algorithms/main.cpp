@@ -9,7 +9,7 @@ future tasks
 4) Алгоритмы поиска: линейный и бинарный ...
 5) Алгоритм переворота строки
 */
-#define SIZE_ARR 40
+#define SIZE_ARR 10000000
 
 
 void rand_feel(int * arr)
@@ -30,20 +30,29 @@ void show_arr(T arr, T1 size= SIZE_ARR)
 	std::cout << "\n";
 }
 
+void test(int (*fun)(int * arr, int size))
+{
+	std::cout << "\n";
+	CodeTimer t("test sort");
+	int* i = new int[SIZE_ARR]();
+	//show_arr(i, SIZE_ARR);
+	rand_feel(i);
+	//show_arr(i, SIZE_ARR);
+	std::cout << fun(i, SIZE_ARR);
+	//show_arr(i, SIZE_ARR);
+	std::cout << "\n";
+}
 void test()
 {
-	CodeTimer t("test function");
+	std::cout << "\n";
+	CodeTimer t("quick sort");
 	int* i = new int[SIZE_ARR]();
-	show_arr(i, SIZE_ARR);
+	//show_arr(i, SIZE_ARR);
 	rand_feel(i);
-	show_arr(i, SIZE_ARR);
-	std::cout << sort::bouble(i, SIZE_ARR);
-	show_arr(i, SIZE_ARR);
-	//std::cout << "find 7 " << search::binary_search(i, SIZE_ARR, 7)<<" ";
-	//std::cout << sort::bouble_plus(i, SIZE_ARR);
-	//show_arr(i);
-	//std::cout << sort::merge(i, SIZE_ARR);
-	//show_arr(i);
+	//show_arr(i, SIZE_ARR);
+	std::cout << sort::quick(i, 0, SIZE_ARR);
+	//show_arr(i, SIZE_ARR);
+	std::cout << "\n";
 }
 
 void dinamic_fib(size_t value)
@@ -167,7 +176,13 @@ Singl* Singl::instance = nullptr;
 
 int main()
 {
-	test();
-	
+//	test(sort::bouble);
+//	test(sort::bouble_plus);
+//	test(sort::choose);
+//	test(sort::count_sort_map);
+	test(sort::count_sort_without_map);
+//	test(sort::merge);
+//	test();
+
 	return 0;
 }
