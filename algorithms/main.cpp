@@ -1,6 +1,12 @@
 #include <iostream>
 #include "Algo.h"
 #include <vector>
+
+#include <thread>
+#include <chrono>
+#include <random>
+#include <future>
+
 /*
 future tasks
 1) Алгоритмы сортировки: пузырьком+, слиянием и quicksort.  ...пирамидальная
@@ -8,8 +14,10 @@ future tasks
 3) Алгоритм нахождения факториала ...
 4) Алгоритмы поиска: линейный и бинарный ...
 5) Алгоритм переворота строки
+6) Паттерны
+7) Многопоточка
 */
-#define SIZE_ARR 10000000
+#define SIZE_ARR 1000000
 
 
 void rand_feel(int * arr)
@@ -30,32 +38,9 @@ void show_arr(T arr, T1 size= SIZE_ARR)
 	std::cout << "\n";
 }
 
-void test(int (*fun)(int * arr, int size))
-{
-	std::cout << "\n";
-	CodeTimer t("test sort");
-	int* i = new int[SIZE_ARR]();
-	//show_arr(i, SIZE_ARR);
-	rand_feel(i);
-	//show_arr(i, SIZE_ARR);
-	std::cout << fun(i, SIZE_ARR);
-	//show_arr(i, SIZE_ARR);
-	std::cout << "\n";
-}
-void test()
-{
-	std::cout << "\n";
-	CodeTimer t("quick sort");
-	int* i = new int[SIZE_ARR]();
-	//show_arr(i, SIZE_ARR);
-	rand_feel(i);
-	//show_arr(i, SIZE_ARR);
-	std::cout << sort::quick(i, 0, SIZE_ARR);
-	//show_arr(i, SIZE_ARR);
-	std::cout << "\n";
-}
 
-void dinamic_fib(size_t value)
+
+void dinamic_fib(int value)
 {
 	if (value == 1)
 	{
@@ -168,21 +153,87 @@ private:
 	Singl(){}
 
 };
-
 Singl* Singl::instance = nullptr;
 
+//
 
 
+
+
+//thread
+
+int somefunct(char c)
+{
+	std::default_random_engine dre(c);
+	std::uniform_int_distribution<int> id(10, 1000);
+
+	for (auto i = 0; i < 10; ++i)
+	{
+		std::this_thread::sleep_for(std::chrono::milliseconds(id(dre)));
+		std::cout.put(c).flush();
+	}
+	return c;
+}
+
+int fun1()
+{
+	return somefunct('+');
+}
+int fun2()
+{
+	return somefunct('0');
+}
+
+void test_threads()
+{
+	std::cout << "start treads \n";
+	std::future<int> result1(std::async(fun1));
+	int  result2=fun2();
+	int result = result1.get() + result2;
+	std::cout << "ended treads \n";
+}
+
+
+//
+
+void test(int (*fun)(int* arr, int size))
+{
+	std::cout << "\n";
+	CodeTimer t("test sort");
+	int* i = new int[SIZE_ARR]();
+	//show_arr(i, SIZE_ARR);
+	rand_feel(i);
+	//show_arr(i, SIZE_ARR);
+	std::cout << fun(i, SIZE_ARR);
+	//show_arr(i, SIZE_ARR);
+	std::cout << "\n";
+}
+void test()
+{
+	std::cout << "\n";
+	CodeTimer t("redix sort");
+	int* i = new int[SIZE_ARR]();
+	//show_arr(i, SIZE_ARR);
+	rand_feel(i);
+	//show_arr(i, SIZE_ARR);
+	std::cout << sort::radix(i, SIZE_ARR);
+	//show_arr(i, SIZE_ARR);
+	std::cout << "\n";
+}
 
 int main()
 {
 //	test(sort::bouble);
 //	test(sort::bouble_plus);
 //	test(sort::choose);
-//	test(sort::count_sort_map);
+	test(sort::count_sort_map);
 	test(sort::count_sort_without_map);
 //	test(sort::merge);
-//	test();
+	test();
+	
+//	test_threads();
+
+
 
 	return 0;
 }
