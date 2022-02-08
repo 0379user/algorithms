@@ -142,10 +142,12 @@
     <ClCompile Include="CodeTimer.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Algo.cpp" />
+    <ClCompile Include="alloc.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Algo.h" />
     <ClInclude Include="CodeTimer.h" />
+    <ClInclude Include="Alloc.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

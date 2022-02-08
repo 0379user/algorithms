@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Algo.h"
+#include "Alloc.h"
 #include <vector>
 /*
 future tasks

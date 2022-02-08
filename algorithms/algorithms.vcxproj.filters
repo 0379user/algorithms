@@ -24,12 +24,18 @@
     <ClCompile Include="CodeTimer.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="alloc.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Algo.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="CodeTimer.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Alloc.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
