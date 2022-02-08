@@ -263,6 +263,47 @@ namespace sort
 
 		return counter;
 	}
+
+	int radix(int* arr, int size)
+	{
+		int counter = 0;
+
+		int* a0 = new int[size];
+		int* a1 = new int[size];
+		
+		
+		for (int redix = 0; redix<32; redix++ )
+		{
+			int a0_size = 0;
+			int a1_size = 0;
+			for (int i = 0; i < size; i++)
+			{
+				counter++;
+				if ((arr[i] & (1 << redix)) == 0)
+				{
+					a0[a0_size++] = arr[i];
+				}
+				else
+				{
+					a1[a1_size++] = arr[i];
+				}
+			}
+			for (int i = 0; i < a0_size; i++)
+			{
+				counter++;
+				arr[i] = a0[i];
+			}
+			for (int i = 0; i < a1_size; i++)
+			{
+				counter++;
+				arr[a0_size + i] = a1[i];
+			}
+
+		}
+		return counter;
+		delete[] a0;
+		delete[] a1;
+	}
 }
 
 
