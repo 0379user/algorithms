@@ -227,12 +227,12 @@ int main()
 //	test(sort::bouble);
 //	test(sort::bouble_plus);
 //	test(sort::choose);
-	test(sort::count_sort_map);
-	test(sort::count_sort_without_map);
+//	test(sort::count_sort_map);
+//	test(sort::count_sort_without_map);
 //	test(sort::merge);
-	test();
+//	test();
 	
-//	test_threads();
+	test_threads();
 
 
 

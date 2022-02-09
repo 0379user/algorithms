@@ -76,7 +76,6 @@ namespace sort
 		return counter;
 	}
 
-
 	int merge(int* arr, int size)
 	{
 		std::cout << "merge\n";
@@ -141,6 +140,7 @@ namespace sort
 		*l = *r;
 		*r = t;
 	}
+
 	int partition(int* arr, int low, int high)
 	{
 		int pivot = arr[high];
@@ -332,7 +332,5 @@ namespace search
 		}
 		return -1;
 	}
-
-	
 
 }
